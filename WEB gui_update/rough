@@ -1,0 +1,11 @@
+button{
+    padding: 1px;
+    margin: 10%;
+    background: transparent;
+    border:none;
+    border : 1px solid whitesmoke;
+    font-size: 16px;
+    color: aliceblue;
+    background:#00aaff;
+    width: 85px;
+} 

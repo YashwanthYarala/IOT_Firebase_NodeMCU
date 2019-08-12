@@ -1,0 +1,37 @@
+body{
+  
+}
+
+ button{
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #03a9f4;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}  
+#td{
+    color: whitesmoke;
+}
+h1{
+    color:rgba(0, 0, 0, 0.6);
+    font-size: 30px;
+}
+#ingled1{
+    
+}
+.ledbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+}

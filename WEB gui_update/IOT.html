@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charupdate="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IOT web gui</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./iot.css">
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
+    <!--the below is aboout firebase-->
+
+
+</head>
+<body >
+                     <center>
+                        <h1>IOT</h1>
+                   
+                    
+                     <div class="ledbox">
+                         <table>
+                            <th id="td">LED PANEL</th>
+                            <tr><td><button id="led1">LED 1 <img src="./images and icons/16px-Green_dot.svg.png" alt="" id="imgled1" ></img></button></td></tr>
+                            <tr><td><button id="led2" >LED 2 <img src="./images and icons/16px-Green_dot.svg.png" alt="" id="imgled2"></button></td></tr>
+                            <tr><td><button id="led3">LED 3 <img src="./images and icons/16px-Green_dot.svg.png" alt="" id="imgled3"></button></td></tr>
+                         </table>
+                     </div> 
+                    </center>
+
+
+
+<script>
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyDqtFTh9Z43MBWuAMS8lY4ylIFQyzf5fcw",
+    authDomain: "iot-project-481fb.firebaseapp.com",
+    databaseURL: "https://iot-project-481fb.firebaseio.com",
+    projectId: "iot-project-481fb",
+    storageBucket: "iot-project-481fb.appspot.com",
+    messagingSenderId: "474970753176",
+    appId: "1:474970753176:web:09549c6f49001769"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+
+
+    var database = firebase.database();
+    var led1,led2,led3;
+     database.ref().on('value',function(snap){
+         led1 = snap.val().ledStatus1;
+         led2 = snap.val().ledStatus2;
+         led3 = snap.val().ledStatus3;
+          var dupled1,dupled2,dupled3;
+
+          dupled1 = led1;dupled2 = led2 ; dupled3 = led3;
+        
+
+         var x=0,y=0,z=0; 
+
+         $('#led1').click(function(){
+             
+             if(led1 ==1)
+             {
+                database.ref().update({ledStatus1:0});
+             }
+             else if( dupled1 == 0)
+             {
+                database.ref().update({ledStatus1:1});
+             }
+         });
+         $('#led2').click(function(){
+             
+             if(led2 ==1)
+             {
+                database.ref().update({ledStatus2:0});
+             }
+             else if( dupled2 == 0)
+             {
+                database.ref().update({ledStatus2:1});
+             }
+         });
+         $('#led3').click(function(){
+             
+             if(led3 ==1)
+             {
+                database.ref().update({ledStatus3:0});
+             }
+             else if( dupled3 == 0)
+             {
+                database.ref().update({ledStatus3:1});
+             }
+         });
+         console.log(led1);
+         console.log(led2);
+         console.log(led3);
+
+         if(led1 == 1)
+         {
+             document.getElementById('imgled1').style.visibility = 'visible';
+         }else{
+             document.getElementById('imgled1').style.visibility = 'hidden';
+         }
+         if(led2 == 1)
+         {
+             document.getElementById('imgled2').style.visibility = 'visible';
+         }else{
+             document.getElementById('imgled2').style.visibility = 'hidden';
+         }
+         if(led3 == 1)
+         {
+             document.getElementById('imgled3').style.visibility = 'visible';
+         }else{
+             document.getElementById('imgled3').style.visibility = 'hidden';
+         }
+     });
+     
+     
+</script>
+</body>
+</html>
